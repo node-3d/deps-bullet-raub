@@ -1,0 +1,29 @@
+{
+	"name": "node-deps-bullet-raub",
+	"author": "Luis Blanco <raubtierxxx@gmail.com>",
+	"description": "A dependency for node-bullet-raub.",
+	"version": "0.0.1",
+	"main": "index.js",
+	"keywords": [
+		"bullet",
+		"physics",
+		"3d",
+		"deps",
+		"dependency",
+		"lib",
+		"library",
+		"binary"
+	],
+	"maintainers": [
+		{
+			"name": "Luis Blanco",
+			"email": "raubtierxxx@gmail.com",
+			"skype": "rauber666"
+		}
+	],
+	"license" : "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raub/node-deps-bullet"
+	}
+}
