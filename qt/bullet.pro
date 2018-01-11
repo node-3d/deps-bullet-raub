@@ -2,14 +2,13 @@ CONFIG(debug, debug|release): CONFIG -= release
 else: CONFIG -= debug
 
 QT -= core gui
-CONFIG += c++11
+CONFIG += c++11 staticlib
 
 TEMPLATE = lib
 TARGET = bullet
 
 
 DEFINES += BT_USE_INVERSE_DYNAMICS_WITH_BULLET2
-QMAKE_LFLAGS += /INCLUDE
 
 
 DESTDIR = $$PWD/../bin_win32
