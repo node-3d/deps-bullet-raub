@@ -2,7 +2,7 @@
 	"name": "node-deps-bullet-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
 	"description": "A dependency for node-bullet-raub.",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"main": "index.js",
 	"keywords": [
 		"bullet",
