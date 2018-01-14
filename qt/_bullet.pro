@@ -22,15 +22,16 @@ contains(QMAKE_TARGET.arch, x86_64):{
 	DESTDIR = $$PWD/../bin_win64
 }
 
-macx {
-	DESTDIR = $$PWD/../bin_mac64
+unix {
+        DESTDIR = $$PWD/../bin_linux32
+        contains(QMAKE_TARGET.arch, x86_64):{
+                DESTDIR = $$PWD/../bin_linux64
+        }
 }
 
-linux-g++ {
-	DESTDIR = $$PWD/../bin_linux32
-	contains(QMAKE_TARGET.arch, x86_64):{
-		DESTDIR = $$PWD/../bin_linux64
-	}
+
+macx {
+	DESTDIR = $$PWD/../bin_mac64
 }
 
 
