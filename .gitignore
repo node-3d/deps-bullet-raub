@@ -1,9 +1,9 @@
 node_modules
 *.log
 build*
-lib_d
 .DS_Store
 *.pro.user
 *.exp
 *.pdb
 *.ilk
+package-lock.json
