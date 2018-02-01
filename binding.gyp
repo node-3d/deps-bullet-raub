@@ -10,7 +10,7 @@
 			'actions'     : [
 				{
 					'action_name' : 'Unnecessary binaries removed.',
-					'inputs'      : ['package.json'],
+					'inputs'      : [],
 					'outputs'     : ['build'],
 					'action'      : ['<(rm)', '-rf', '<@(rem)'],
 				}
