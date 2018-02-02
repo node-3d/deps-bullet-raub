@@ -1,7 +1,7 @@
 {
 	'variables': {
-		'rm'  : '<!(node -e "console.log(require(\'addon-tools-raub\').rm)")',
-		'rem' : '<!(node -e "console.log(require(\'.\').rem)")',
+		'rm'  : '<!(node -e "require(\'addon-tools-raub\').rm()")',
+		'rem' : '<!(node -e "require(\'.\').rem()")',
 	},
 	'targets': [
 		{

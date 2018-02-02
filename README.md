@@ -37,8 +37,8 @@ any physics algorithms are changed/invented within this repository.
 
 ```javascript
 	'variables': {
-		'bullet_include' : '<!(node -e "console.log(require(\'deps-bullet-raub\').include)")',
-		'bullet_bin'     : '<!(node -e "console.log(require(\'deps-bullet-raub\').bin)")',
+		'bullet_include' : '<!(node -e "require(\'deps-bullet-raub\').include()")',
+		'bullet_bin'     : '<!(node -e "require(\'deps-bullet-raub\').bin()")',
 	},
 	...
 	'targets': [

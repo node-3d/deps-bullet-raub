@@ -2,7 +2,7 @@
 	"name": "deps-bullet-raub",
 	"author": "Luis Blanco <raubtierxxx@gmail.com>",
 	"description": "Binaries and headers for Bullet-dependent compilation",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"main": "index.js",
 	"keywords": [
 		"bullet",
@@ -27,6 +27,6 @@
 		"url": "https://github.com/raub/node-deps-bullet"
 	},
 	"dependencies": {
-		"addon-tools-raub": "0.0.5"
+		"addon-tools-raub": "0.0.6"
 	}
 }
