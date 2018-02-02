@@ -8,3 +8,4 @@ build*
 *.ilk
 .gitignore
 package-lock.json
+test
