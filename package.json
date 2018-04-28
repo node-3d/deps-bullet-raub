@@ -28,6 +28,6 @@
 		"url": "https://github.com/node-3d/deps-bullet-raub.git"
 	},
 	"dependencies": {
-		"addon-tools-raub": "0.0.7"
+		"addon-tools-raub": "0.1.8"
 	}
 }
