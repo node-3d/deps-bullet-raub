@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-bullet-raub",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Binaries and headers for Bullet-dependent compilation",
 	"license": "MIT",
 	"main": "index.js",
