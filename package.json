@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-bullet-raub",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"description": "Binaries and headers for Bullet-dependent compilation",
 	"license": "MIT",
 	"main": "index.js",
@@ -28,6 +28,6 @@
 		"url": "https://github.com/node-3d/deps-bullet-raub.git"
 	},
 	"dependencies": {
-		"addon-tools-raub": "0.1.8"
+		"addon-tools-raub": "^1.0.0"
 	}
 }
