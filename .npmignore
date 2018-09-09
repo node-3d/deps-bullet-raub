@@ -5,6 +5,7 @@
 .idea
 .lock-wscript
 .project
+*.user
 binary/
 build*/
 CPPLINT.cfg
