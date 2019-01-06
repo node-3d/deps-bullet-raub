@@ -44,7 +44,14 @@ endif
 DEFINES          = -DUNICODE -D_UNICODE -DBT_USE_INVERSE_DYNAMICS_WITH_BULLET2 -DNDEBUG $(SYS_DEFINES)
 
 ifeq ($(OS), Windows)
-	INC_OTHER        = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/ucrt" -I"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/include" -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/um" -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/shared"
+	I_VC             = -I"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/include"
+	I_UCRT1          = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/ucrt"
+	I_UM1            = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/um"
+	I_SHARED1        = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/shared"
+	I_UCRT2          = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/ucrt"
+	I_UM2            = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/um"
+	I_SHARED2        = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/shared"
+	INC_OTHER        = $(I_VC) $(I_UCRT1) $(I_UM1) $(I_SHARED1) $(I_UCRT2) $(I_UM2) $(I_SHARED2)
 else ifeq ($(OS), Darwin)
 	INC_OTHER        = 
 else
