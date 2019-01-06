@@ -62,8 +62,8 @@ ifeq ($(OS), Windows)
 else
 	CXX              = g++
 	CXXFLAGS         = $(DEFINES)
-	LIBAPP           = gcc
-	LIBFLAGS         = 
+	LIBAPP           = ar
+	LIBFLAGS         = rcs $(TARGET)
 endif
 
 
