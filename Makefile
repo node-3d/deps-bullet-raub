@@ -1,20 +1,11 @@
 OS = $(shell uname -s)
 ARCH = 64
 
+
 ifeq ($(ARCH), 32)
 	CL_ARCH       = 86
 else
 	CL_ARCH       = $(ARCH)
-endif
-
-ifeq ($(OS), Windows)
-	CC               = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/cl.exe"
-	CXX              = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/cl.exe"
-	LIBAPP           = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/lib.exe"
-else
-	CC               = gcc
-	CXX              = g++
-	LIBAPP           = ld
 endif
 
 
@@ -48,21 +39,29 @@ endif
 
 
 DEFINES          = -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DBT_USE_INVERSE_DYNAMICS_WITH_BULLET2 -DQT_NO_DEBUG -DNDEBUG
-CFLAGS           = -nologo -Zc:wchar_t -FS -Zc:strictStrings -O2 -MT -W3 -w44456 -w44457 -w44458 $(DEFINES)
-CXXFLAGS         = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MT -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
 
 ifeq ($(OS), Windows)
-	LIBFLAGS         = /NOLOGO /OUT:$(TARGET) /machine:X$(CL_ARCH)
 	INC_OTHER        = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/ucrt" -I"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/include" -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/um" -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/shared"
 else ifeq ($(OS), Darwin)
-	LIBFLAGS         = 
 	INC_OTHER        = 
 else
-	LIBFLAGS         = 
 	INC_OTHER        = 
 endif
 
 INCPATH          = -I$(SRC_DIR) -I. -I$(INC_DIR) -I$(INC_DIR)/_subdir -I$(INC_DIR)/_subdir/_subdir $(INC_OTHER)
+
+
+ifeq ($(OS), Windows)
+	CXX              = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/cl.exe"
+	CXXFLAGS         = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MT -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
+	LIBAPP           = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/lib.exe"
+	LIBFLAGS         = /NOLOGO /OUT:$(TARGET) /machine:X$(CL_ARCH)
+else
+	CXX              = g++
+	CXXFLAGS         = $(DEFINES)
+	LIBAPP           = ld
+	LIBFLAGS         = 
+endif
 
 
 OBJECTS = \
