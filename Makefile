@@ -213,16 +213,7 @@ OBJECTS = \
  $(OBJ_DIR)/btUniversalConstraint.$(OBJ_EXT) \
  $(OBJ_DIR)/btVector3.$(OBJ_EXT) \
  $(OBJ_DIR)/btVoronoiSimplexSolver.$(OBJ_EXT) \
- $(OBJ_DIR)/btWheelInfo.$(OBJ_EXT) \
- $(OBJ_DIR)/gim_box_set.$(OBJ_EXT) \
- $(OBJ_DIR)/gim_contact.$(OBJ_EXT) \
- $(OBJ_DIR)/gim_memory.$(OBJ_EXT) \
- $(OBJ_DIR)/gim_tri_collision.$(OBJ_EXT) \
- $(OBJ_DIR)/IDMath.$(OBJ_EXT) \
- $(OBJ_DIR)/MultiBodyTree.$(OBJ_EXT) \
- $(OBJ_DIR)/MultiBodyTreeImpl.$(OBJ_EXT) \
- $(OBJ_DIR)/MultiBodyTreeInitCache.$(OBJ_EXT) \
- $(OBJ_DIR)/SphereTriangleDetector.$(OBJ_EXT)
+ $(OBJ_DIR)/btWheelInfo.$(OBJ_EXT)
 
 
 all: $(TARGET)
