@@ -1,4 +1,5 @@
 *.log
+*.obj
 .cproject
 .eslintrc
 .gitignore
@@ -14,3 +15,5 @@ examples/
 package-lock.json
 test/
 qt/
+Makefile
+.travis.yml

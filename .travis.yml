@@ -10,8 +10,8 @@ matrix:
   - name: "Windows"
     os: windows
     before_install:
-      - make ARCH=64
-      - make ARCH=32
+      - make OS=Windows ARCH=64
+      - make OS=Windows ARCH=32
   - name: "Linux"
     os: linux
     dist: xenial
@@ -32,9 +32,6 @@ script:
 
 
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script: ls -la osx
   - provider: releases
     name: "Binaries"
     body: $TRAVIS_COMMIT_MESSAGE
@@ -43,9 +40,7 @@ deploy:
     overwrite: true
     draft: true
     file:
-      # FREEIMAGE
-      # - "osx/freeimage.dylib"
-      # GLFW
-      # - "osx/glfw.dylib"
-      # GLEW
-      - "osx/glew.dylib"
+      - "bin-linux64/libbullet.a"
+      - "bin-mac64/libbullet.a"
+      - "bin-win32/bullet.lib"
+      - "bin-win64/bullet.lib"
