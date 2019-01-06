@@ -14,10 +14,10 @@ ifeq ($(OS), Windows)
 	SYS_DEFINES      = -DWIN32
 else ifeq ($(OS), Darwin)
 	TARGET_DIR       = bin-mac64
-	SYS_DEFINES      = -D__APPLE__
+	SYS_DEFINES      = -D__APPLE__ -D_DARWIN
 else
 	TARGET_DIR       = bin-linux64
-	SYS_DEFINES      = 
+	SYS_DEFINES      = -D_LINUX
 endif
 
 ifeq ($(OS), Windows)
@@ -58,11 +58,11 @@ ifeq ($(OS), Windows)
 	CXX              = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/cl.exe"
 	CXXFLAGS         = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MT -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
 	LIBAPP           = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/lib.exe"
-	LIBFLAGS         = /NOLOGO /OUT:$(TARGET) /machine:X$(CL_ARCH)
+	LIBFLAGS         = /STACK:10000000 /INCREMENTAL:NO /NOLOGO /OUT:$(TARGET) /machine:X$(CL_ARCH)
 else
 	CXX              = g++
 	CXXFLAGS         = $(DEFINES)
-	LIBAPP           = ld
+	LIBAPP           = gcc
 	LIBFLAGS         = 
 endif
 

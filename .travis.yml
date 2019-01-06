@@ -7,11 +7,9 @@ matrix:
   include:
   - name: "Windows"
     os: windows
-    install:
-      - choco install make
     script:
-      - make OS=Windows ARCH=64
-      - make OS=Windows ARCH=32
+      - mingw32-make OS=Windows ARCH=64
+      - mingw32-make OS=Windows ARCH=32
   - name: "Linux"
     os: linux
     dist: xenial
