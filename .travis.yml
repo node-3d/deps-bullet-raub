@@ -1,15 +1,13 @@
 if: commit_message =~ /^:hammer:/
 
-language: node_js
+language: cpp
 
-node_js:
-  - "10.13.0"
 
 matrix:
   include:
   - name: "Windows"
     os: windows
-    before_install:
+    script:
       - make OS=Windows ARCH=64
       - make OS=Windows ARCH=32
   - name: "Linux"
@@ -21,15 +19,8 @@ matrix:
     compiler: clang++
 
 
-before_install:
-  - make
-
-install:
-  - cd test
-  - npm i
-
 script:
-  - npm test
+  - make
 
 
 deploy:
