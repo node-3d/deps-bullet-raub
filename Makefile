@@ -11,10 +11,13 @@ endif
 
 ifeq ($(OS), Windows)
 	TARGET_DIR       = bin-win$(ARCH)
+	SYS_DEFINES      = -DWIN32
 else ifeq ($(OS), Darwin)
 	TARGET_DIR       = bin-mac64
+	SYS_DEFINES      = -D__APPLE__
 else
 	TARGET_DIR       = bin-linux64
+	SYS_DEFINES      = 
 endif
 
 ifeq ($(OS), Windows)
@@ -38,7 +41,7 @@ else
 endif
 
 
-DEFINES          = -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DBT_USE_INVERSE_DYNAMICS_WITH_BULLET2 -DQT_NO_DEBUG -DNDEBUG
+DEFINES          = -DUNICODE -D_UNICODE -DBT_USE_INVERSE_DYNAMICS_WITH_BULLET2 -DNDEBUG $(SYS_DEFINES)
 
 ifeq ($(OS), Windows)
 	INC_OTHER        = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/ucrt" -I"C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/include" -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/um" -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/shared"
