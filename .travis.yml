@@ -1,34 +1,51 @@
-dist: trusty
-sudo: false
+if: commit_message =~ /^:hammer:/
 
 language: node_js
 
 node_js:
-  - "8.11.4"
+  - "10.13.0"
 
+matrix:
+  include:
+  - name: "Windows"
+    os: windows
+    before_install:
+      - make ARCH=64
+      - make ARCH=32
+  - name: "Linux"
+    os: linux
+    dist: xenial
+    sudo: false
+  - name: "MacOS"
+    os: osx
+    compiler: clang++
 
 before_install:
-  - npm conf set strict-ssl false
-  - npm install -g npm@6.4.0
-
+  - make
 
 install:
-  - npm i --XALL
-  - if [[ ! -d bin-win32 || ! -d bin-win64 || ! -d bin-linux64 || ! -d bin-mac64 ]]; then
-      echo "Not all directories present";
-      false;
-    fi;
-  - npm i
-  - if [[ -d bin-win32 || -d bin-win64 || ! -d bin-linux64 || -d bin-mac64 ]]; then
-      echo "Wrong directories present";
-      false;
-    fi;
   - cd test
   - npm i
-  - cd ..
-
 
 script:
-  - cd test
   - npm test
-  - cd ..
+
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: ls -la osx
+  - provider: releases
+    name: "Binaries"
+    body: $TRAVIS_COMMIT_MESSAGE
+    api_key: $GITHUB_TOKEN
+    skip_cleanup: true
+    overwrite: true
+    draft: true
+    file:
+      # FREEIMAGE
+      # - "osx/freeimage.dylib"
+      # GLFW
+      # - "osx/glfw.dylib"
+      # GLEW
+      - "osx/glew.dylib"
