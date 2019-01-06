@@ -65,7 +65,7 @@ ifeq ($(OS), Windows)
 	CXX              = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/cl.exe"
 	CXXFLAGS         = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MT -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
 	LIBAPP           = "C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x$(CL_ARCH)/lib.exe"
-	LIBFLAGS         = /STACK:10000000 /INCREMENTAL:NO /NOLOGO /OUT:$(TARGET) /machine:X$(CL_ARCH)
+	LIBFLAGS         = -NOLOGO -OUT:$(TARGET) -machine:X$(CL_ARCH)
 else
 	CXX              = g++
 	CXXFLAGS         = $(DEFINES)
