@@ -27,7 +27,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     script:
-      - ls -la
+      - ls build/bin
   - provider: releases
     name: "Binaries for $TRAVIS_OS_NAME"
     body: $TRAVIS_COMMIT_MESSAGE
@@ -35,5 +35,6 @@ deploy:
     skip_cleanup: true
     overwrite: true
     draft: true
+    file_glob: true
     file:
       - "build/bin/*"
