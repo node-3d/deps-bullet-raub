@@ -28,11 +28,6 @@ deploy:
     skip_cleanup: true
     script:
       - ls -la
-      - echo 1111111111111
-      - ls -la build
-      - echo 2222222222
-      - ls -la build/bin
-      - echo 33333333333
   - provider: releases
     name: "Binaries for $TRAVIS_OS_NAME"
     body: $TRAVIS_COMMIT_MESSAGE
