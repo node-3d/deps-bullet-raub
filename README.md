@@ -2,23 +2,36 @@
 
 This is a part of [Node3D](https://github.com/node-3d) project.
 
+![NPM](https://nodei.co/npm/deps-bullet-raub.png?compact=true)
+
+![Build Status](https://api.travis-ci.com/node-3d/deps-bullet-raub.svg?branch=master)
+
+> npm i -s deps-bullet-raub
+
 
 ## Synopsis
 
 This dependency package is distributing **Bullet Physics**
 binaries through **NPM** for **Node.js** addons.
 
-* Platforms: win x32/x64, linux x32/x64, mac x64.
+* Platforms: win x64, linux x32/x64, mac x64.
 * Library: Bullet physics.
 * Linking: static lib-type.
 
 
-## Install
-
-`npm i -s deps-bullet-raub`
-
-
 ## Usage
+
+If you don't know Bullet Physics, then probably you could learn it better before
+rushing into the Node.js addons with it. Anyway
+[the official manual](https://github.com/bulletphysics/bullet3/blob/master/docs/Bullet_User_Manual.pdf)
+is a good place to start. Also there are a lot of
+[examples](https://github.com/bulletphysics/bullet3/tree/master/examples).
+
+And, the most important, take a look at the existing
+[bullet-raub](https://github.com/node-3d/bullet-raub) addon, that exports
+a very simple API for Node.js.
+
+---
 
 **binding.gyp**
 
@@ -78,9 +91,11 @@ Bullet licensing information (a COPY) is given in a [separate file](/BULLET_ZLIB
 which also can be found on
 [Bullet's official repository](https://github.com/bulletphysics/bullet3/blob/master/LICENSE.txt).
 
-Binaries for all current platforms are built through Qt's QMAKE system **WITHOUT** any use of
-Qt-libraries. A `.pro` for QMAKE file along with brute-force extracted Bullet sources are
-inside `qt` folder [here](https://github.com/raub/node-deps-bullet/tree/master/qt).
+Binaries for all current platforms are built through MAKE system with
+[Travis CI matrix](https://travis-ci.com/node-3d/deps-bullet-raub).
+See Travis [config](https://github.com/node-3d/deps-bullet-raub/blob/master/.travis.yml) for details.
+Brute-force extracted Bullet sources are
+inside `cpp` [folder](https://github.com/raub/node-deps-bullet/tree/master/cpp).
 As the layout of Bullet's source tree and the way it is compiled were changed, the whole
 new codebase is published here to both comply with ZLIB requirements and provide means for
 further expansion of this set of precompiled binaries to different platforms.
