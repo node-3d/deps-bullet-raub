@@ -222,7 +222,8 @@ OBJECTS = \
  $(OBJ_DIR)/btUniversalConstraint.$(OBJ_EXT) \
  $(OBJ_DIR)/btVector3.$(OBJ_EXT) \
  $(OBJ_DIR)/btVoronoiSimplexSolver.$(OBJ_EXT) \
- $(OBJ_DIR)/btWheelInfo.$(OBJ_EXT)
+ $(OBJ_DIR)/btWheelInfo.$(OBJ_EXT) \
+ $(OBJ_DIR)/SphereTriangleDetector.$(OBJ_EXT)
 
 
 all: $(BUILD_DIR) $(OBJ_DIR) $(BIN_DIR) $(TARGET)
