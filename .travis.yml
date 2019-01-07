@@ -8,7 +8,8 @@ matrix:
   - name: "Windows"
     os: windows
     script:
-      # - find C:/ -name "math.h" -ignore_readdir_race 2>/dev/null
+      # - find C:/ -name "math.h" -ignore_readdir_race 2>nul
+      - find C:/ -name "cl.exe" -ignore_readdir_race 2>nul
       - mingw32-make OS=Windows ARCH=64
       - mingw32-make OS=Windows ARCH=32
   - name: "Linux"
