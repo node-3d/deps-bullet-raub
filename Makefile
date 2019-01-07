@@ -228,13 +228,13 @@ OBJECTS = \
 all: $(BUILD_DIR) $(OBJ_DIR) $(BIN_DIR) $(TARGET)
 
 $(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+	mkdir $(BUILD_DIR)
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	mkdir $(OBJ_DIR)
 
 $(BIN_DIR):
-	mkdir -p $(BIN_DIR)
+	mkdir $(BIN_DIR)
 
 
 ifeq ($(OS), Windows)
