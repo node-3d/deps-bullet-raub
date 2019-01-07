@@ -5,18 +5,18 @@ ARCH = 64
 ifeq ($(ARCH), 32)
 	CL_ARCH       = 86
 else
-	CL_ARCH       = $(ARCH)
+	CL_ARCH       = 64
 endif
 
 
 ifeq ($(OS), Windows)
-	TARGET_DIR       = bin-win$(ARCH)
+	TARGET_ARCH      = win$(ARCH)
 	SYS_DEFINES      = -DWIN32
 else ifeq ($(OS), Darwin)
-	TARGET_DIR       = bin-mac64
+	TARGET_ARCH      = mac64
 	SYS_DEFINES      = -D__APPLE__ -D_DARWIN
 else
-	TARGET_DIR       = bin-linux64
+	TARGET_ARCH      = linux64
 	SYS_DEFINES      = -D_LINUX
 endif
 
@@ -27,12 +27,14 @@ else
 endif
 
 TARGET_NAME      = bullet
-TARGET           = $(TARGET_DIR)/$(TARGET_NAME).$(TARGET_EXT)
+TARGET           = build/bin/$(TARGET_NAME)-$(TARGET_ARCH).$(TARGET_EXT)
 
 
 SRC_DIR          = cpp
 INC_DIR          = include
-OBJ_DIR          = $(TARGET_DIR)
+BUILD_DIR        = build
+OBJ_DIR          = build/$(TARGET_ARCH)-objects
+BIN_DIR          = build/bin
 
 ifeq ($(OS), Windows)
 	OBJ_EXT       = obj
@@ -223,7 +225,16 @@ OBJECTS = \
  $(OBJ_DIR)/btWheelInfo.$(OBJ_EXT)
 
 
-all: $(TARGET)
+all: $(BUILD_DIR) $(OBJ_DIR) $(BIN_DIR) $(TARGET)
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(BIN_DIR):
+	mkdir -p $(BIN_DIR)
 
 
 ifeq ($(OS), Windows)
