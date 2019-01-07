@@ -70,7 +70,7 @@ ifeq ($(OS), Windows)
 	LIBFLAGS         = -NOLOGO -OUT:$(TARGET) -machine:X$(CL_ARCH)
 else
 	CXX              = g++
-	CXXFLAGS         = -O3 $(DEFINES)
+	CXXFLAGS         = -O3 -fPIC $(DEFINES)
 	LIBAPP           = ar
 	LIBFLAGS         = rcs $(TARGET)
 endif
