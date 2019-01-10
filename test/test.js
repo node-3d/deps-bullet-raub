@@ -1,15 +1,10 @@
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
-
 const { expect } = require('chai');
 const { stub, spy } = require('sinon');
 
 const deps = require('deps-bullet-raub');
 
-
-const depsDir = path.dirname(require.resolve('deps-bullet-raub')).replace(/\\/g, '/')
 const pathsMethods = ['bin', 'rem', 'include'];
 
 
@@ -19,7 +14,7 @@ describe('Paths', () => {
 	let stubbed;
 	beforeEach(() => {
 		log = spy();
-		stubbed = stub(console, 'log').callsFake(log)
+		stubbed = stub(console, 'log').callsFake(log);
 	});
 	afterEach(() => stubbed.restore());
 	
