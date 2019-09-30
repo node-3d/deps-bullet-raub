@@ -3,7 +3,7 @@
 const { expect } = require('chai');
 const { stub, spy } = require('sinon');
 
-const deps = require('deps-bullet-raub');
+const deps = require('..');
 
 const pathsMethods = ['bin', 'rem', 'include'];
 
@@ -19,7 +19,7 @@ describe('Paths', () => {
 	afterEach(() => stubbed.restore());
 	
 	
-	it(`exports an object`, () => {
+	it('exports an object', () => {
 		expect(deps).to.be.an('object');
 	});
 	

@@ -1,40 +1,67 @@
-if: commit_message =~ /^:hammer:/
-
-language: cpp
-
-
 matrix:
   include:
-  - name: "Windows"
-    os: windows
-    script:
-      - mingw32-make OS=Windows ARCH=64
-      - mingw32-make OS=Windows ARCH=32
-  - name: "Linux"
-    os: linux
-    dist: xenial
-    sudo: false
-  - name: "MacOS"
-    os: osx
-    compiler: clang++
-
-
-script:
-  - make
+    - name: "Linux Test"
+      language: node_js
+      node_js: "10.16.1"
+      os: linux
+      if: NOT commit_message =~ /^:hammer:/
+      dist: xenial
+      sudo: false
+      install:
+        - cd test
+        - npm ci
+    - name: "OSX Test"
+      language: node_js
+      node_js: "10.16.1"
+      os: osx
+      if: NOT commit_message =~ /^:hammer:/
+      install:
+        - cd test
+        - npm ci
+    - name: "Windows"
+      os: windows
+      script:
+        - cd src
+        - mingw32-make OS=Windows ARCH=64
+        - cd ..
+    - name: "Linux Build"
+      os: linux
+      dist: xenial
+      env:
+        - NEEDS_UPLOAD=true
+        - UPLOAD_NAME=Linux
+      if: commit_message =~ /^:hammer:/
+      language: cpp
+      compiler: gcc
+      script:
+        - cd src
+        - make
+        - cd ..
+    - name: "OSX Build"
+      os: osx
+      env:
+        - NEEDS_UPLOAD=true
+        - UPLOAD_NAME=OSX
+      if: commit_message =~ /^:hammer:/
+      language: cpp
+      compiler: clang++
+      script:
+        - cd src
+        - make
+        - cd ..
 
 
 deploy:
-  - provider: script
-    skip_cleanup: true
-    script:
-      - ls build/bin
-  - provider: releases
-    name: "Binaries for $TRAVIS_OS_NAME"
-    body: $TRAVIS_COMMIT_MESSAGE
-    api_key: $GITHUB_TOKEN
-    skip_cleanup: true
-    overwrite: true
-    draft: true
-    file_glob: true
-    file:
-      - "build/bin/*"
+  on:
+    all_branches: true
+    condition: $NEEDS_UPLOAD = true
+  provider: releases
+  name: "$UPLOAD_NAME Binaries"
+  body: $TRAVIS_COMMIT_MESSAGE
+  api_key: $GITHUB_TOKEN
+  skip_cleanup: true
+  overwrite: true
+  draft: true
+  file_glob: true
+  file:
+    - "src/build/bin/*"

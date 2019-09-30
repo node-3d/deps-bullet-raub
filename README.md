@@ -15,7 +15,7 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 This dependency package is distributing **Bullet Physics**
 binaries through **NPM** for **Node.js** addons.
 
-* Platforms: win x64, linux x32/x64, mac x64.
+* Platforms (x64): Windows, Linux, OSX.
 * Library: Bullet physics.
 * Linking: static lib-type.
 
@@ -38,8 +38,8 @@ a very simple API for Node.js.
 
 ```javascript
 	'variables': {
-		'bullet_include' : '<!(node -e "require(\'deps-bullet-raub\').include()")',
-		'bullet_bin'     : '<!(node -e "require(\'deps-bullet-raub\').bin()")',
+		'bullet_include' : '<!(node -p "require(\'deps-bullet-raub\').include")',
+		'bullet_bin'     : '<!(node -p "require(\'deps-bullet-raub\').bin")',
 	},
 	...
 	'targets': [
@@ -53,25 +53,6 @@ a very simple API for Node.js.
 			
 			'library_dirs': [ '<(bullet_bin)' ],
 			'libraries'    : [ '-lbullet' ],
-			
-			'conditions': [
-				
-				['OS=="linux"', {
-					'libraries': [
-						'-Wl,-rpath,<(bullet_bin)',
-					],
-				}],
-				
-				['OS=="mac"', {
-					'libraries': [
-						'-Wl,-rpath,<(bullet_bin)',
-				}],
-				
-				['OS=="win"', {
-					
-				}],
-				
-			],
 		},
 ```
 
