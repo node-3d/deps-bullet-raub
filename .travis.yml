@@ -18,12 +18,13 @@ matrix:
       install:
         - cd test
         - npm ci
-    - name: "Windows"
-      os: windows
-      script:
-        - cd src
-        - mingw32-make OS=Windows ARCH=64
-        - cd ..
+    # Windows is not supported on travis, but that's how it ment to be
+    # - name: "Windows"
+    #   os: windows
+    #   script:
+    #     - cd src
+    #     - mingw32-make OS=Windows ARCH=64
+    #     - cd ..
     - name: "Linux Build"
       os: linux
       dist: xenial
