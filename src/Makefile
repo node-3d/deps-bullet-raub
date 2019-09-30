@@ -12,12 +12,14 @@ endif
 ifeq ($(OS), Windows)
 	TARGET_ARCH      = win$(ARCH)
 	SYS_DEFINES      = -DWIN32
-else ifeq ($(OS), Darwin)
+else
+ifeq ($(OS), Darwin)
 	TARGET_ARCH      = mac64
 	SYS_DEFINES      = -D__APPLE__ -D_DARWIN
 else
 	TARGET_ARCH      = linux64
 	SYS_DEFINES      = -D_LINUX
+endif
 endif
 
 ifeq ($(OS), Windows)
@@ -31,7 +33,7 @@ TARGET           = build/bin/$(TARGET_NAME)-$(TARGET_ARCH).$(TARGET_EXT)
 
 
 SRC_DIR          = cpp
-INC_DIR          = include
+INC_DIR          = ../include
 BUILD_DIR        = build
 OBJ_DIR          = build/$(TARGET_ARCH)-objects
 BIN_DIR          = build/bin
@@ -54,10 +56,12 @@ ifeq ($(OS), Windows)
 	I_UM2            = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/um"
 	I_SHARED2        = -I"C:/Program Files (x86)/Windows Kits/10/Include/10.0.17134.0/shared"
 	INC_OTHER        = $(I_VC) $(I_UCRT1) $(I_UM1) $(I_SHARED1) $(I_UCRT2) $(I_UM2) $(I_SHARED2)
-else ifeq ($(OS), Darwin)
+else
+ifeq ($(OS), Darwin)
 	INC_OTHER        = 
 else
 	INC_OTHER        = 
+endif
 endif
 
 INCPATH          = -I$(SRC_DIR) -I. -I$(INC_DIR) -I$(INC_DIR)/_subdir -I$(INC_DIR)/_subdir/_subdir $(INC_OTHER)
