@@ -2,7 +2,7 @@ matrix:
   include:
     - name: "Linux Test"
       language: node_js
-      node_js: "10.16.1"
+      node_js: "12.13.0"
       os: linux
       if: NOT commit_message =~ /^:hammer:/
       dist: xenial
@@ -12,19 +12,12 @@ matrix:
         - npm ci
     - name: "OSX Test"
       language: node_js
-      node_js: "10.16.1"
+      node_js: "12.13.0"
       os: osx
       if: NOT commit_message =~ /^:hammer:/
       install:
         - cd test
         - npm ci
-    # Windows is not supported on travis, but that's how it ment to be
-    # - name: "Windows"
-    #   os: windows
-    #   script:
-    #     - cd src
-    #     - mingw32-make OS=Windows ARCH=64
-    #     - cd ..
     - name: "Linux Build"
       os: linux
       dist: xenial

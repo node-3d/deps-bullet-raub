@@ -7,7 +7,7 @@ This is a part of [Node3D](https://github.com/node-3d) project.
 [![Build Status](https://api.travis-ci.com/node-3d/deps-bullet-raub.svg?branch=master)](https://travis-ci.com/node-3d/deps-bullet-raub)
 [![CodeFactor](https://www.codefactor.io/repository/github/node-3d/deps-bullet-raub/badge)](https://www.codefactor.io/repository/github/node-3d/deps-bullet-raub)
 
-> npm i -s deps-bullet-raub
+> npm i deps-bullet-raub
 
 
 ## Synopsis
@@ -34,30 +34,90 @@ a very simple API for Node.js.
 
 ---
 
-**binding.gyp**
+
+### Example binding.gyp
+
+As in [glfw-raub](https://github.com/node-3d/glfw-raub/tree/master/src) Node.js addon.
 
 ```javascript
+{
 	'variables': {
+		'bin'            : '<!(node -p "require(\'addon-tools-raub\').bin")',
 		'bullet_include' : '<!(node -p "require(\'deps-bullet-raub\').include")',
 		'bullet_bin'     : '<!(node -p "require(\'deps-bullet-raub\').bin")',
 	},
-	...
 	'targets': [
 		{
-			'target_name': '...',
-			
-			'include_dirs': [
-				'<(bullet_include)',
-				...
+			'target_name' : 'bullet',
+			'sources' : [
+				'cpp/bindings.cpp',
+				'cpp/body.cpp',
+				'cpp/joint.cpp',
+				'cpp/scene.cpp',
 			],
-			
-			'library_dirs': [ '<(bullet_bin)' ],
+			'include_dirs' : [
+				'<!@(node -p "require(\'addon-tools-raub\').include")',
+				'<(bullet_include)',
+			],
+			'library_dirs' : [ '<(bullet_bin)' ],
 			'libraries'    : [ '-lbullet' ],
+			'cflags!': ['-fno-exceptions'],
+			'cflags_cc!': ['-fno-exceptions'],
+			'conditions': [
+				
+				[
+					'OS=="linux"',
+					{
+						'libraries': [
+							"-Wl,-rpath,'$$ORIGIN'",
+							"-Wl,-rpath,'$$ORIGIN/../node_modules/deps-bullet-raub/<(bin)'",
+							"-Wl,-rpath,'$$ORIGIN/../../deps-bullet-raub/<(bin)'",
+						],
+						'defines': ['__linux__'],
+					}
+				],
+				
+				[
+					'OS=="mac"',
+					{
+						'libraries': [
+							'-Wl,-rpath,@loader_path',
+							'-Wl,-rpath,@loader_path/../node_modules/deps-bullet-raub/<(bin)',
+							'-Wl,-rpath,@loader_path/../../deps-bullet-raub/<(bin)',
+						],
+						'defines': ['__APPLE__'],
+					}
+				],
+				
+				[
+					'OS=="win"',
+					{
+						'defines' : [
+							'WIN32_LEAN_AND_MEAN',
+							'VC_EXTRALEAN',
+							'_WIN32',
+						],
+						'msvs_settings' : {
+							'VCCLCompilerTool' : {
+								'AdditionalOptions' : [
+									'/GL', '/GF', '/EHsc', '/GS', '/Gy', '/GR-',
+								]
+							},
+							'VCLinkerTool' : {
+								'AdditionalOptions' : ['/RELEASE','/OPT:REF','/OPT:ICF','/LTCG'],
+							},
+						},
+					},
+				],
+				
+			],
 		},
+	]
+}
 ```
 
 
-**addon.cpp**
+### addon.cpp
 
 ```cpp
 #include <...>
