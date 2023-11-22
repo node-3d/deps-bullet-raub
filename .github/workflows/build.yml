@@ -80,6 +80,14 @@ jobs:
         if: matrix.os != 'windows-2022'
         run: node src/build-unix
 
+      - name: LS Unix 1
+        if: matrix.os != 'windows-2022'
+        run: ls src/bullet3/build
+
+      - name: LS Unix 2
+        if: matrix.os != 'windows-2022'
+        run: ls src/bullet3/build/lib
+
       - name: Build Windows
         if: matrix.os == 'windows-2022'
         run: src/windows.sh

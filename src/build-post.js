@@ -3,13 +3,12 @@
 const path = require('node:path');
 
 const {
-	getPlatform, getBin, ensuredir, copyall, copy,
+	getBin, ensuredir, copyall,
 } = require('addon-tools-raub');
 
 
 const bin = getBin();
 const binPath = path.resolve(bin);
-const platform = getPlatform();
 
 
 const fail = (error) => {
@@ -21,13 +20,6 @@ const fail = (error) => {
 (async () => {
 	try {
 		await ensuredir(binPath);
-		
-		if (['linux', 'aarch64'].includes(platform)) {
-			await copy(
-				path.resolve(`src/alsa-${platform}/libasound.so`),
-				`${binPath}/libasound.so`,
-			);
-		}
 		
 		await copyall(path.resolve('src/build'), binPath);
 	} catch (error) {
