@@ -21,10 +21,6 @@ See the official
 [Bullet3 manual](https://github.com/bulletphysics/bullet3/blob/master/docs/Bullet_User_Manual.pdf)
 and [examples](https://github.com/bulletphysics/bullet3/tree/master/examples).
 
-And, the most important, take a look at the existing
-[bullet-raub](https://github.com/node-3d/bullet-raub) addon, that exports
-a very simple API for Node.js.
-
 See [bullet-raub](https://github.com/node-3d/bullet-raub/tree/master/src) for
 how the libraries may be used in a Node.js addon.
 

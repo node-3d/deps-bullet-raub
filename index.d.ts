@@ -1,4 +1,4 @@
-declare module "deps-labsound-raub" {
+declare module "deps-bullet-raub" {
 	/**
 	 * Path to binaries
 	 * 
