@@ -1,4 +1,4 @@
-# Bullet3 binaries
+# Bullet3 Binaries
 
 This is a part of [Node3D](https://github.com/node-3d) project.
 
@@ -14,7 +14,7 @@ This dependency package is distributing **Bullet Physics**
 binaries through **NPM** for **Node.js** addons.
 
 * Platforms (x64): Windows x64, Linux x64, OSX x64, Linux Aarch64.
-* Library: Bullet physics.
+* Library: Bullet physics, see list below.
 * Linking: static lib-type.
 
 See the official
@@ -25,8 +25,24 @@ See [bullet-raub](https://github.com/node-3d/bullet-raub/tree/master/src) for
 how the libraries may be used in a Node.js addon.
 
 
+## Included Libs
 
-## Legal notice
+Python and Robotics libs are **NOT** included, only C++/CL simulation related stuff (`.lib`/`.a`):
+
+* LinearMath
+* Bullet2FileLoader
+* Bullet3Collision
+* Bullet3Common
+* Bullet3Dynamics
+* Bullet3Geometry
+* Bullet3OpenCL_clew
+* BulletCollision
+* BulletDynamics
+* BulletInverseDynamics
+* BulletSoftBody
+
+
+## Legal Notice
 
 This software uses [Bullet3](http://bulletphysics.org/wordpress/).
 Bullet3 is legally used under the ZLIB license.

@@ -31,12 +31,6 @@ const updateSystem = async () => {
 			console.error(stderr);
 		}
 		console.log('-------------------');
-		console.log('Extracting Alsa');
-		const { stderr2 } = await exec(`sh src/extract-${platform}.sh`);
-		if (stderr2) {
-			console.error(stderr2);
-		}
-		console.log('-------------------');
 	} catch (error) {
 		fail(error);
 	}
@@ -45,7 +39,7 @@ const updateSystem = async () => {
 
 const buildLib = async () => {
 	try {
-		console.log('LABSOUND Build Started');
+		console.log('Bullet Build Started');
 		const { stderr, stdout } = await exec(`sh ${getScriptForLib()}`);
 		if (stdout) {
 			console.error(stdout);
@@ -53,7 +47,7 @@ const buildLib = async () => {
 		if (stderr) {
 			console.error(stderr);
 		}
-		console.log('LABSOUND Build Finished');
+		console.log('Bullet Build Finished');
 		console.log('-------------------');
 	} catch (error) {
 		fail(error);
