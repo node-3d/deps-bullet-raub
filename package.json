@@ -1,7 +1,7 @@
 {
 	"author": "Luis Blanco <luisblanco1337@gmail.com>",
 	"name": "deps-bullet-raub",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "Binaries and headers for Bullet-dependent compilation",
 	"license": "MIT",
 	"main": "index.js",
@@ -27,27 +27,33 @@
 	"files": [
 		"include",
 		"index.js",
+		"install.d.ts",
 		"install.js",
 		"BULLET_BSD",
 		"LICENSE",
 		"package.json",
 		"README.md"
 	],
-	"config": {
-		"install": "v2.0.0"
-	},
 	"scripts": {
-		"postinstall": "node install"
+		"postinstall": "node install",
+		"eslint": "eslint .",
+		"test": "node --test"
 	},
 	"engines": {
-		"node": ">=12.13.0",
-		"npm": ">=6.12.0"
+		"node": ">=18.16.0",
+		"npm": ">=9.5.1"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/node-3d/deps-bullet-raub.git"
 	},
 	"dependencies": {
-		"addon-tools-raub": "5.0.0"
+		"addon-tools-raub": "^7.3.0"
+	},
+	"devDependencies": {
+		"eslint-plugin-node": "^11.1.0",
+		"eslint": "^8.51.0",
+		"node-addon-api": "^7.0.0",
+		"typescript": "^5.2.2"
 	}
 }

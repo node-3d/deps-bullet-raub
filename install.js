@@ -1,9 +1,8 @@
 'use strict';
 
-const install = require('addon-tools-raub/install');
+const { install } = require('addon-tools-raub');
 
-
-const prefix = 'https://github.com/node-3d/deps-bullet-raub/releases/download';
-const tag    = process.env.npm_package_config_install;
+const prefix = 'https://github.com/node-3d/deps-labsound-raub/releases/download';
+const tag = '3.0.0';
 
 install(`${prefix}/${tag}`);
