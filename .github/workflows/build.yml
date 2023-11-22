@@ -82,11 +82,11 @@ jobs:
 
       - name: LS Unix 1
         if: matrix.os != 'windows-2022'
-        run: ls src/bullet3/build
+        run: ls src/bullet3
 
       - name: LS Unix 2
         if: matrix.os != 'windows-2022'
-        run: ls src/bullet3/build/lib
+        run: ls src/bullet3/build/src
 
       - name: Build Windows
         if: matrix.os == 'windows-2022'
