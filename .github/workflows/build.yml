@@ -80,17 +80,9 @@ jobs:
         if: matrix.os != 'windows-2022'
         run: node src/build-unix
 
-      - name: LS Unix 1
-        if: matrix.os != 'windows-2022'
-        run: ls src/bullet3/installed
-
-      - name: LS Unix 1
-        if: matrix.os != 'windows-2022'
-        run: ls src/bullet3/build
-
-      - name: LS Unix 2
-        if: matrix.os != 'windows-2022'
-        run: ls src/bullet3/build/src
+      - name: LS macos 1
+        if: matrix.os == 'macos-11'
+        run: ls src/bullet3/build/src/Bullet3Collision
 
       - name: Build Windows
         if: matrix.os == 'windows-2022'
