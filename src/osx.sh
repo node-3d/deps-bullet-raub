@@ -1,13 +1,13 @@
 chmod +x src/build-common.sh && src/build-common.sh
 
-# cp src/bullet3/build/lib/Release/LinearMath.a src/build/LinearMath.a
-# cp src/bullet3/build/lib/Release/Bullet2FileLoader.a src/build/Bullet2FileLoader.a
-# cp src/bullet3/build/lib/Release/Bullet3Collision.a src/build/Bullet3Collision.a
-# cp src/bullet3/build/lib/Release/Bullet3Common.a src/build/Bullet3Common.a
-# cp src/bullet3/build/lib/Release/Bullet3Dynamics.a src/build/Bullet3Dynamics.a
-# cp src/bullet3/build/lib/Release/Bullet3Geometry.a src/build/Bullet3Geometry.a
-# cp src/bullet3/build/lib/Release/Bullet3OpenCL_clew.a src/build/Bullet3OpenCL_clew.a
-# cp src/bullet3/build/lib/Release/BulletCollision.a src/build/BulletCollision.a
-# cp src/bullet3/build/lib/Release/BulletDynamics.a src/build/BulletDynamics.a
-# cp src/bullet3/build/lib/Release/BulletInverseDynamics.a src/build/BulletInverseDynamics.a
-# cp src/bullet3/build/lib/Release/BulletSoftBody.a src/build/BulletSoftBody.a
+cp src/bullet3/build/src/Bullet3Collision/libBullet3Collision.a src/build/libBullet3Collision.a
+cp src/bullet3/build/src/Bullet3Common/libBullet3Common.a src/build/libBullet3Common.a
+cp src/bullet3/build/src/Bullet3Dynamics/libBullet3Dynamics.a src/build/libBullet3Dynamics.a
+cp src/bullet3/build/src/Bullet3Geometry/libBullet3Geometry.a src/build/libBullet3Geometry.a
+cp src/bullet3/build/src/Bullet3OpenCL/libBullet3OpenCL_clew.a src/build/libBullet3OpenCL_clew.a
+cp src/bullet3/build/src/Bullet3Serialize/Bullet2FileLoader/libBullet2FileLoader.a src/build/libBullet2FileLoader.a
+cp src/bullet3/build/src/BulletCollision/libBulletCollision.a src/build/libBulletCollision.a
+cp src/bullet3/build/src/BulletDynamics/libBulletDynamics.a src/build/libBulletDynamics.a
+cp src/bullet3/build/src/BulletInverseDynamics/libBulletInverseDynamics.a src/build/libBulletInverseDynamics.a
+cp src/bullet3/build/src/BulletSoftBody/libBulletSoftBody.a src/build/libBulletSoftBody.a
+cp src/bullet3/build/src/LinearMath/libLinearMath.a src/build/libLinearMath.a
