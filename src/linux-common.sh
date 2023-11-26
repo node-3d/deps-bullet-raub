@@ -1,4 +1,25 @@
-chmod +x src/build-common.sh && src/build-common.sh
+(
+	cd src/bullet3/build
+	
+	cmake \
+		-DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DBUILD_BULLET2_DEMOS=OFF \
+		-DBUILD_OPENGL3_DEMOS=OFF \
+		-DBUILD_CPU_DEMOS=OFF \
+		-DBUILD_UNIT_TESTS=OFF \
+		-DBUILD_CLSOCKET=OFF \
+		-DBUILD_ENET=OFF \
+		-DBUILD_EXTRAS=OFF \
+		-DENABLE_VHACD=OFF \
+		-DUSE_GLUT=OFF \
+		-DINSTALL_LIBS=ON \
+		-DUSE_GRAPHICAL_BENCHMARK=OFF \
+		-DUSE_SOFT_BODY_MULTI_BODY_DYNAMICS_WORLD=OFF \
+		..
+	
+	cmake --build . --config Release
+)
 
 cp src/bullet3/build/src/Bullet3Collision/libBullet3Collision.a src/build/libBullet3Collision.a
 cp src/bullet3/build/src/Bullet3Common/libBullet3Common.a src/build/libBullet3Common.a
