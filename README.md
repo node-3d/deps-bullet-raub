@@ -15,7 +15,7 @@ binaries through **NPM** for **Node.js** addons.
 
 * Platforms (x64): Windows, Linux, MacOS ARM, Linux ARM.
 * Library: Bullet physics, see list below.
-* Linking: static lib-type (PIC).
+* Linking: static lib-type (PIC/MD).
 
 See the official
 [Bullet3 manual](https://github.com/bulletphysics/bullet3/blob/master/docs/Bullet_User_Manual.pdf)

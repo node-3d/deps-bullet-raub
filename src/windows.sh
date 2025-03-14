@@ -2,6 +2,7 @@
 	cd src/bullet3/build
 	
 	cmake -A x64 -T v142 \
+		-DCMAKE_MSVC_RUNTIME_LIBRARY="MultiThreadedDLL" \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DBUILD_BULLET2_DEMOS=OFF \
 		-DBUILD_OPENGL3_DEMOS=OFF \
