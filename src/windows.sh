@@ -1,7 +1,7 @@
 (
 	cd src/bullet3/build
 	
-	cmake -A x64 \
+	cmake -A x64 -T v142 \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DBUILD_BULLET2_DEMOS=OFF \
 		-DBUILD_OPENGL3_DEMOS=OFF \
@@ -24,14 +24,18 @@
 	# cmake --install . --config Release
 )
 
-cp src/bullet3/build/lib/Release/LinearMath.lib src/build/LinearMath.lib
-cp src/bullet3/build/lib/Release/Bullet2FileLoader.lib src/build/Bullet2FileLoader.lib
-cp src/bullet3/build/lib/Release/Bullet3Collision.lib src/build/Bullet3Collision.lib
-cp src/bullet3/build/lib/Release/Bullet3Common.lib src/build/Bullet3Common.lib
-cp src/bullet3/build/lib/Release/Bullet3Dynamics.lib src/build/Bullet3Dynamics.lib
-cp src/bullet3/build/lib/Release/Bullet3Geometry.lib src/build/Bullet3Geometry.lib
-cp src/bullet3/build/lib/Release/Bullet3OpenCL_clew.lib src/build/Bullet3OpenCL_clew.lib
-cp src/bullet3/build/lib/Release/BulletCollision.lib src/build/BulletCollision.lib
-cp src/bullet3/build/lib/Release/BulletDynamics.lib src/build/BulletDynamics.lib
-cp src/bullet3/build/lib/Release/BulletInverseDynamics.lib src/build/BulletInverseDynamics.lib
-cp src/bullet3/build/lib/Release/BulletSoftBody.lib src/build/BulletSoftBody.lib
+(
+	cd src
+	
+	cp bullet3/build/lib/Release/LinearMath.lib build/LinearMath.lib
+	cp bullet3/build/lib/Release/Bullet2FileLoader.lib build/Bullet2FileLoader.lib
+	cp bullet3/build/lib/Release/Bullet3Collision.lib build/Bullet3Collision.lib
+	cp bullet3/build/lib/Release/Bullet3Common.lib build/Bullet3Common.lib
+	cp bullet3/build/lib/Release/Bullet3Dynamics.lib build/Bullet3Dynamics.lib
+	cp bullet3/build/lib/Release/Bullet3Geometry.lib build/Bullet3Geometry.lib
+	cp bullet3/build/lib/Release/Bullet3OpenCL_clew.lib build/Bullet3OpenCL_clew.lib
+	cp bullet3/build/lib/Release/BulletCollision.lib build/BulletCollision.lib
+	cp bullet3/build/lib/Release/BulletDynamics.lib build/BulletDynamics.lib
+	cp bullet3/build/lib/Release/BulletInverseDynamics.lib build/BulletInverseDynamics.lib
+	cp bullet3/build/lib/Release/BulletSoftBody.lib build/BulletSoftBody.lib
+)

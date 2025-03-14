@@ -1,1 +1,1 @@
-chmod +x src/linux-common.sh && src/linux-common.sh
+chmod +x src/unix-common.sh && src/unix-common.sh
